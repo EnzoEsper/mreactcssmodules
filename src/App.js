@@ -111,7 +111,6 @@ class App extends React.Component {
         */}
 
         {persons}
-        {console.log(btnClass)}
         {/* this is an alternate way to do the same that the code from below  */}
 
         {/* ternary expression to render the components conditionally*/}
