@@ -49,16 +49,8 @@ class App extends React.Component {
   };
 
   render() {
-    const style = {
-      backgroundColor: "green",
-      color: "white",
-      font: "inherit",
-      border: "1px solid blue",
-      padding: "8px",
-      cursor: "pointer"
-    };
-
     let persons = null;
+    let btnClass = "";
     if (this.state.showPersons) {
       persons = (
         <div>
@@ -92,8 +84,8 @@ class App extends React.Component {
         </div>
       );
 
-      // changing the color of the button if the list of persons is showed
-      style.backgroundColor = "red";
+      // if the persons are displayed the button changes to red
+      btnClass = styles.Red; // btnClass = "red"
     }
 
     const classes = []; // this returns "red bold"
@@ -108,7 +100,7 @@ class App extends React.Component {
       <div className={styles.App}>
         <h1>App component!</h1>
         <p className={classes.join(" ")}> This is working! </p>
-        <button style={style} onClick={this.togglePersonsHandler}>
+        <button className={btnClass} onClick={this.togglePersonsHandler}>
           Toggle Persons
         </button>
         {/*
@@ -119,6 +111,7 @@ class App extends React.Component {
         */}
 
         {persons}
+        {console.log(btnClass)}
         {/* this is an alternate way to do the same that the code from below  */}
 
         {/* ternary expression to render the components conditionally*/}
