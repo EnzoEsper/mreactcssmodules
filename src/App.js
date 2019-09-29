@@ -1,6 +1,5 @@
 import React from "react";
 import Person from "./Person/Person";
-import Radium, { StyleRoot } from "radium";
 
 class App extends React.Component {
   state = {
@@ -55,11 +54,7 @@ class App extends React.Component {
       font: "inherit",
       border: "1px solid blue",
       padding: "8px",
-      cursor: "pointer",
-      ":hover": {
-        backgroundColor: "lightgreen",
-        color: "black"
-      }
+      cursor: "pointer"
     };
 
     let persons = null;
@@ -98,10 +93,6 @@ class App extends React.Component {
 
       // changing the color of the button if the list of persons is showed
       style.backgroundColor = "red";
-      style[":hover"] = {
-        backgroundColor: "salmon",
-        color: "white"
-      };
     }
 
     const classes = []; // this returns "red bold"
@@ -113,25 +104,24 @@ class App extends React.Component {
     }
 
     return (
-      <StyleRoot>
-        <div className="App">
-          <h1>App component!</h1>
-          <p className={classes.join(" ")}> This is working! </p>
-          <button style={style} onClick={this.togglePersonsHandler}>
-            Toggle Persons
-          </button>
-          {/*
+      <div className="App">
+        <h1>App component!</h1>
+        <p className={classes.join(" ")}> This is working! </p>
+        <button style={style} onClick={this.togglePersonsHandler}>
+          Toggle Persons
+        </button>
+        {/*
         Alterantive way to the button onClick function from above
         <button onClick={() => this.switchNameHandler("Maximilian")}>
           Switch Name
         </button>
         */}
 
-          {persons}
-          {/* this is an alternate way to do the same that the code from below  */}
+        {persons}
+        {/* this is an alternate way to do the same that the code from below  */}
 
-          {/* ternary expression to render the components conditionally*/}
-          {/* {this.state.showPersons === true ? (
+        {/* ternary expression to render the components conditionally*/}
+        {/* {this.state.showPersons === true ? (
           <div>
             <Person
               name={this.state.persons[0].name}
@@ -151,13 +141,12 @@ class App extends React.Component {
             />
           </div>
         ) : null} */}
-        </div>
-      </StyleRoot>
+      </div>
     );
   }
 }
 
-export default Radium(App);
+export default App;
 
 // state = {
 //   persons: [
